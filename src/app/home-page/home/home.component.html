@@ -1,0 +1,31 @@
+<section class="homepage">
+  <div class="top-bar">
+    <div
+      class="title"
+      *ngFor="let title of titles; index as i"
+      [class.active]="i === selectedValueIndex"
+      (click)="onChangeTitle(i)"
+    >
+      {{ title.name }}
+    </div>
+  </div>
+  <div class="list-game">
+    <div class="game" *ngFor="let game of sortNewAndTop(listGame)">
+      <img alt="" src="{{ game.image }}" />
+      <span class="jackpot">{{ getJackpotByGame(game.id) }}</span>
+      <span class="show-on-hover play-btn">Play </span>
+      <span class="show-on-hover">{{ game.name }}</span>
+      <img
+        class="new-tag"
+        *ngIf="game.categories.includes('new')"
+        src="../../../assets/image/new.png"
+      />
+      <img
+        class="new-tag"
+        [class.both-tag]="game.categories.includes('new')"
+        *ngIf="game.categories.includes('top')"
+        src="../../../assets/image/top.png"
+      />
+    </div>
+  </div>
+</section>

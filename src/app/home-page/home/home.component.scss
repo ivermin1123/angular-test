@@ -1,0 +1,77 @@
+@import "../../variable";
+
+.homepage {
+  font-family: Arial, Helvetica, sans-serif;
+  .top-bar {
+    display: flex;
+    margin-bottom: 10px;
+    .title {
+      flex: 1;
+      background: #000000;
+      color: $white;
+      padding: 6px;
+      &.active {
+        background: $green;
+      }
+    }
+  }
+  .list-game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .hide {
+      display: none;
+    }
+    .game {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-right: 10px;
+      .jackpot {
+        position: absolute;
+        top: 16px;
+        padding: 4px;
+        background: red;
+        color: white;
+        &:empty {
+          display: none;
+        }
+      }
+      .play-btn {
+        position: absolute;
+        color: white;
+        background: green;
+        padding: 10px;
+        right: 35%;
+        top: 52px;
+      }
+      .show-on-hover {
+        visibility: hidden;
+      }
+      &:hover {
+        .show-on-hover {
+          visibility: visible;
+        }
+      }
+    }
+    img {
+      width: 200px;
+      height: 150px;
+      object-fit: contain;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.5s;
+      }
+      &.new-tag {
+        position: absolute;
+        width: 38px;
+        right: 0;
+        top: -41px;
+      }
+      &.both-tag {
+        top: -7px;
+      }
+    }
+  }
+}
